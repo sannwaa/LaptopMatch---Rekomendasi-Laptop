@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaptopMatch - Detail Laptop Spesifikasi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts Poppins & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 45px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .detail-img-container {
+      background-color: #f8fafc;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 380px;
+      border: 1px solid var(--border);
+    }
+    .detail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .detail-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .detail-brand {
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .detail-specs-list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    .detail-spec-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .detail-spec-label {
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .detail-spec-value {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .detail-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 30px;
+    }
+    @media (max-width: 768px) {
+      .detail-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 24px;
+      }
+      .detail-img-container {
+        height: 250px;
+      }
+      .detail-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar" id="main-navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fa-solid fa-laptop-code" style="margin-right: 8px; color: var(--primary);"></i>Laptop<span>Match</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="laptops.html" class="active">Daftar Laptop</a>
+        <a href="login.html" class="btn-login"><i class="fa-solid fa-lock" style="margin-right: 6px;"></i>Admin Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 60px 20px; min-height: 80vh;">
+    <a href="javascript:history.back()" class="btn btn-secondary btn-sm" style="margin-bottom: 20px;"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+
+    <div id="detail-loading" style="text-align: center; padding: 100px 0; color: var(--text-muted); font-weight: 500;">
+      <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 2rem; margin-bottom: 15px; color: var(--primary); display: block;"></i>
+      Sedang memuat data detail laptop...
+    </div>
+
+    <div id="detail-content" class="detail-container" style="display: none;">
+      <div class="detail-img-container">
+        <img id="laptop-img" class="detail-img" src="" alt="Laptop Image">
+      </div>
+      <div class="detail-info">
+        <!-- Score recommendation if available -->
+        <div id="recommendation-score-wrapper" class="info-card" style="display: none; margin-bottom: 24px; border-color: var(--primary); background-color: rgba(37, 99, 235, 0.04); padding: 16px 20px; align-items: center; justify-content: space-between;">
+          <div>
+            <h4 style="color: var(--primary); font-size: 0.82rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;"><i class="fa-solid fa-star" style="margin-right: 6px;"></i>Skor Rekomendasi Anda</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Laptop ini direkomendasikan berdasarkan bobot prioritas Anda.</p>
+          </div>
+          <div style="font-size: 2.2rem; font-weight: 800; color: var(--primary);" id="recommendation-score-value">0.0</div>
+        </div>
+
+        <h1 id="laptop-name" class="detail-title">Nama Laptop</h1>
+        <div id="laptop-brand" class="detail-brand">Merek</div>
+        
+        <ul class="detail-specs-list">
+          <li class="detail-spec-item">
+            <span class="detail-spec-label"><i class="fa-solid fa-memory" style="margin-right: 8px;"></i>Kapasitas RAM</span>
+            <span id="laptop-ram" class="detail-spec-value">0 GB</span>
+          </li>
+          <li class="detail-spec-item">
+            <span class="detail-spec-label"><i class="fa-solid fa-hard-drive" style="margin-right: 8px;"></i>Kapasitas Storage</span>
+            <span id="laptop-storage" class="detail-spec-value">0 GB</span>
+          </li>
+          <li class="detail-spec-item">
+            <span class="detail-spec-label"><i class="fa-solid fa-microchip" style="margin-right: 8px;"></i>Performa CPU (Score 1-10)</span>
+            <span id="laptop-cpu" class="detail-spec-value">0 / 10</span>
+          </li>
+        </ul>
+
+        <div id="laptop-price" class="detail-price">Rp 0</div>
+
+        <!-- Description Area -->
+        <div style="margin-bottom: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;"><i class="fa-solid fa-circle-info" style="margin-right: 6px; color: var(--primary);"></i>Deskripsi Lengkap</h3>
+          <p id="laptop-description" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Deskripsi laptop...</p>
+        </div>
+        
+        <div>
+          <a href="index.html#recommendation-section" class="btn btn-primary">Gunakan Untuk Pencarian Baru <i class="fa-solid fa-calculator"></i></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Laptop<span>Match</span></h3>
+          <p>Temukan laptop ideal Anda menggunakan algoritma perhitungan Weighted Scoring yang cerdas, objektif, dan transparan.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Aplikasi</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="laptops.html">Katalog Laptop</a></li>
+            <li><a href="index.html#recommendation-section">Rekomendasi Cerdas</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Administrator</h4>
+          <ul>
+            <li><a href="login.html">Login Admin</a></li>
+            <li><a href="dashboard.html">Dashboard CRUD</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LaptopMatch. All rights reserved. Created with Antigravity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/detail.js"></script>
+  <script>
+    // Sticky Navbar Class change on Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('main-navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaptopMatch - Katalog Daftar Laptop</title>
+  <meta name="description" content="Katalog daftar lengkap laptop di LaptopMatch.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts Poppins & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar" id="main-navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fa-solid fa-laptop-code" style="margin-right: 8px; color: var(--primary);"></i>Laptop<span>Match</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="laptops.html" class="active">Daftar Laptop</a>
+        <a href="login.html" class="btn-login"><i class="fa-solid fa-lock" style="margin-right: 6px;"></i>Admin Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 60px 20px; min-height: 80vh;">
+    <div class="section-title" style="text-align: left; margin-bottom: 40px;">
+      <h2>Katalog <span>Laptop</span></h2>
+      <p>Jelajahi seluruh daftar spesifikasi laptop yang terdaftar dalam database kami.</p>
+    </div>
+
+    <!-- Search and Filter Bar -->
+    <div class="search-filter-bar" style="gap: 15px;">
+      <div class="search-input-wrapper">
+        <input type="text" id="search-input" class="input-control" placeholder="Cari nama atau brand laptop...">
+      </div>
+      
+      <div class="filter-group">
+        <label for="brand-filter"><i class="fa-solid fa-industry" style="margin-right: 6px; color: var(--primary);"></i>Brand:</label>
+        <select id="brand-filter" class="input-control" style="width: auto; min-width: 140px; padding: 10px 16px;">
+          <option value="ALL">Semua Brand</option>
+          <option value="Apple">Apple</option>
+          <option value="Asus">Asus</option>
+          <option value="Lenovo">Lenovo</option>
+          <option value="HP">HP</option>
+          <option value="Acer">Acer</option>
+          <option value="Dell">Dell</option>
+          <option value="MSI">MSI</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Huawei">Huawei</option>
+          <option value="Axioo">Axioo</option>
+          <option value="Infinix">Infinix</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="min-price-filter"><i class="fa-solid fa-tags" style="margin-right: 6px; color: var(--primary);"></i>Budget Min:</label>
+        <input type="number" id="min-price-filter" class="input-control" placeholder="Min Rp" style="width: 130px; padding: 10px 16px;">
+      </div>
+
+      <div class="filter-group">
+        <label for="max-price-filter">Max:</label>
+        <input type="number" id="max-price-filter" class="input-control" placeholder="Max Rp" style="width: 130px; padding: 10px 16px;">
+      </div>
+
+      <div class="filter-group">
+        <label for="sort-by"><i class="fa-solid fa-arrow-down-wide-narrow" style="margin-right: 6px; color: var(--primary);"></i>Urutkan:</label>
+        <select id="sort-by" class="input-control" style="width: auto; min-width: 160px; padding: 10px 16px;">
+          <option value="none">Default</option>
+          <option value="price-asc">Harga Terendah</option>
+          <option value="price-desc">Harga Tertinggi</option>
+          <option value="ram-desc">RAM Terbesar</option>
+          <option value="storage-desc">Penyimpanan Terbesar</option>
+          <option value="cpu-desc">Performa CPU Terbaik</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Laptops Catalog Grid -->
+    <div id="catalog-grid" class="laptops-grid">
+      <!-- Data laptop akan di-render di sini oleh JavaScript -->
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Laptop<span>Match</span></h3>
+          <p>Temukan laptop ideal Anda menggunakan algoritma perhitungan Weighted Scoring yang cerdas, objektif, dan transparan.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Aplikasi</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="laptops.html">Katalog Laptop</a></li>
+            <li><a href="index.html#recommendation-section">Rekomendasi Cerdas</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Administrator</h4>
+          <ul>
+            <li><a href="login.html">Login Admin</a></li>
+            <li><a href="dashboard.html">Dashboard CRUD</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LaptopMatch. All rights reserved. Created with Antigravity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/catalog.js"></script>
+  <script>
+    // Sticky Navbar Class change on Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('main-navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

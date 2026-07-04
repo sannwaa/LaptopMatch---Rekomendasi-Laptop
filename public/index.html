@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaptopMatch - Cari Laptop Impian Anda</title>
+  <meta name="description" content="Temukan laptop impian Anda dengan sistem rekomendasi weighted scoring cerdas LaptopMatch.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts Poppins & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar" id="main-navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><i class="fa-solid fa-laptop-code" style="margin-right: 8px; color: var(--primary);"></i>Laptop<span>Match</span></a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="laptops.html">Daftar Laptop</a>
+        <a href="login.html" class="btn-login"><i class="fa-solid fa-lock" style="margin-right: 6px;"></i>Admin Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Cari Laptop <span>Paling Match</span> Untuk Anda</h1>
+        <p>Gunakan sistem rekomendasi weighted scoring untuk menghitung laptop terbaik berdasarkan prioritas performa CPU, kapasitas RAM, Storage, dan anggaran Anda.</p>
+        <div class="hero-actions">
+          <a href="#recommendation-section" class="btn btn-primary">Mulai Rekomendasi <i class="fa-solid fa-chevron-right"></i></a>
+          <a href="laptops.html" class="btn btn-secondary">Lihat Katalog</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-glow"></div>
+        <img class="hero-img" src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=600&auto=format&fit=crop" alt="Premium Laptop Illustration">
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang LaptopMatch -->
+  <section id="about-section" class="section" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Tentang <span>LaptopMatch</span></h2>
+        <p>LaptopMatch hadir untuk menyelesaikan dilema pemilihan laptop di tengah ribuan spesifikasi yang membingungkan.</p>
+      </div>
+      <div class="hero-container" style="padding: 0;">
+        <div class="hero-image">
+          <img class="hero-img" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=600&auto=format&fit=crop" alt="Technology Work">
+        </div>
+        <div class="hero-content">
+          <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">Mengapa Memilih Kami?</h3>
+          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Kami menggunakan metode perhitungan data ilmiah, bukan sekadar tebakan subyektif. Dengan mencocokkan anggaran belanja maksimal Anda serta tingkat kepentingan kebutuhan RAM, kapasitas Storage, dan performa processor (CPU), sistem kami menghitung skor kecocokan secara real-time.</p>
+          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Proses pencarian laptop impian kini lebih obyektif, transparan, cepat, dan sepenuhnya bebas biaya tanpa perlu membuat akun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keunggulan Aplikasi -->
+  <section id="features-section" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Keunggulan <span>Aplikasi</span></h2>
+        <p>Fitur utama yang kami tawarkan untuk memudahkan Anda mengambil keputusan pembelian terbaik.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-calculator"></i></div>
+          <h3>Weighted Scoring</h3>
+          <p>Perhitungan skor presisi dengan mengalikan spesifikasi laptop terhadap tingkat prioritas bobot yang Anda inginkan.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Stateless & Cepat</h3>
+          <p>Tanpa perlu registrasi akun atau login. Begitu Anda klik, hasil rekomendasi langsung terhitung real-time dalam hitungan milidetik.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h3>Spesifikasi Akurat</h3>
+          <p>Katalog kami dikurasi secara ketat mencakup CPU score, RAM, Storage, dan harga ter-update di pasar Indonesia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cara Kerja Rekomendasi -->
+  <section id="how-it-works" class="section" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Cara Kerja <span>Weighted Scoring</span></h2>
+        <p>Bagaimana sistem kami memproses dan menghitung kecocokan laptop untuk Anda?</p>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px;">
+        <div class="info-card" style="padding: 30px;">
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 12px;"><i class="fa-solid fa-sliders" style="margin-right: 8px;"></i>1. Kebutuhan Prioritas</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted);">Anda menentukan prioritas untuk kapasitas RAM, performa CPU, ruang penyimpanan (Storage), serta toleransi harga murah pada form input (Skala 1 - 5).</p>
+        </div>
+        <div class="info-card" style="padding: 30px;">
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 12px;"><i class="fa-solid fa-scale-balanced" style="margin-right: 8px;"></i>2. Normalisasi Data</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted);">Spesifikasi laptop dinormalisasi ke skala 1 - 10 menggunakan min-max scaling agar adil dan seimbang sehingga storage tidak mendominasi RAM dan CPU.</p>
+        </div>
+        <div class="info-card" style="padding: 30px;">
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 12px;"><i class="fa-solid fa-square-root-variable" style="margin-right: 8px;"></i>3. Rumus Perhitungan</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted);">Skor dihitung dengan mengalikan bobot prioritas terhadap nilai spesifikasi ter-normalisasi: Score = (RAM * W_ram) + (CPU * W_cpu) + (Storage * W_storage) - (Price * W_price).</p>
+        </div>
+        <div class="info-card" style="padding: 30px;">
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 12px;"><i class="fa-solid fa-arrow-down-wide-narrow" style="margin-right: 8px;"></i>4. Hasil Pemeringkatan</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted);">Sistem mengurutkan seluruh laptop dari skor kecocokan tertinggi ke terendah dan memaparkannya sebagai hasil ranking rekomendasi terbaik.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendation Form Section -->
+  <section id="recommendation-section" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Rekomendasi <span>Cerdas</span></h2>
+        <p>Sesuaikan tingkat kepentingan (bobot) dari setiap parameter di bawah ini. Nilai berkisar antara 1 (Sangat Tidak Penting) hingga 5 (Sangat Penting).</p>
+      </div>
+
+      <div class="recommendation-card">
+        <form id="recommendation-form">
+          <div class="form-grid">
+            <div class="form-left">
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-label"><i class="fa-solid fa-microchip" style="margin-right: 8px; color: var(--primary);"></i>Prioritas Performa CPU</span>
+                  <span id="val-cpu" class="slider-value">4</span>
+                </div>
+                <input type="range" id="wCpu" name="wCpu" min="1" max="5" value="4">
+                <div class="slider-desc">Tinggi jika Anda perlu laptop untuk coding berat, gaming, atau edit video.</div>
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-label"><i class="fa-solid fa-memory" style="margin-right: 8px; color: var(--primary);"></i>Prioritas Kapasitas RAM</span>
+                  <span id="val-ram" class="slider-value">3</span>
+                </div>
+                <input type="range" id="wRam" name="wRam" min="1" max="5" value="3">
+                <div class="slider-desc">Tinggi untuk aktivitas multitasking lancar dan membuka banyak aplikasi sekaligus.</div>
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-label"><i class="fa-solid fa-hard-drive" style="margin-right: 8px; color: var(--primary);"></i>Prioritas Kapasitas Storage</span>
+                  <span id="val-storage" class="slider-value">2</span>
+                </div>
+                <input type="range" id="wStorage" name="wStorage" min="1" max="5" value="2">
+                <div class="slider-desc">Tinggi untuk menyimpan banyak dokumen, game, atau berkas project besar.</div>
+              </div>
+            </div>
+
+            <div class="form-right">
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span class="slider-label"><i class="fa-solid fa-tags" style="margin-right: 8px; color: var(--primary);"></i>Prioritas Harga Murah</span>
+                  <span id="val-price" class="slider-value">1</span>
+                </div>
+                <input type="range" id="wPrice" name="wPrice" min="1" max="5" value="1">
+                <div class="slider-desc">Tinggi jika Anda mencari opsi paling hemat (harga bersahabat menurunkan skor laptop mahal).</div>
+              </div>
+
+              <div class="input-group">
+                <label for="maxPrice"><i class="fa-solid fa-rupiah-sign" style="margin-right: 8px; color: var(--primary);"></i>Anggaran Maksimal (Rupiah)</label>
+                <input type="number" id="maxPrice" name="maxPrice" class="input-control" placeholder="Contoh: 15000000 (Kosongkan jika tidak dibatasi)">
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">Sistem hanya akan menampilkan laptop dengan harga di bawah batas anggaran ini.</div>
+              </div>
+
+              <div class="input-group" style="margin-top: 40px;">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Hitung Rekomendasi Terbaik <i class="fa-solid fa-circle-nodes"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Recommendation Results -->
+      <div id="results-wrapper" style="display: none; margin-top: 80px;">
+        <div class="section-title">
+          <h2>Hasil <span>Rekomendasi</span></h2>
+          <p>Berikut adalah laptop yang paling sesuai dengan bobot preferensi Anda, diurutkan dari skor tertinggi.</p>
+        </div>
+
+        <div id="results-grid" class="laptops-grid">
+          <!-- Hasil rekomendasi akan di-render di sini menggunakan JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Katalog Laptop Unggulan -->
+  <section id="featured-showcase" class="section" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Katalog <span>Laptop Unggulan</span></h2>
+        <p>Beberapa pilihan laptop populer dengan spesifikasi mumpuni.</p>
+      </div>
+      <div class="laptops-grid">
+        <div class="laptop-card">
+          <div class="laptop-image-container">
+            <span class="brand-badge">Apple</span>
+            <img class="laptop-img" src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500" alt="MacBook Air M2">
+          </div>
+          <div class="laptop-body">
+            <h3 class="laptop-title">MacBook Air M2</h3>
+            <div class="specs-grid">
+              <div class="spec-item"><span class="spec-label">RAM</span><span class="spec-value">8 GB</span></div>
+               <div class="spec-item"><span class="spec-label">Storage</span><span class="spec-value">256 GB</span></div>
+               <div class="spec-item"><span class="spec-label">CPU Score</span><span class="spec-value">8 / 10</span></div>
+               <div class="spec-item"><span class="spec-label">Brand</span><span class="spec-value">Apple</span></div>
+            </div>
+            <div class="laptop-price">Rp 16.500.000</div>
+            <a href="detail.html?id=1" class="btn btn-secondary btn-sm text-center" style="display: block;">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="laptop-card">
+          <div class="laptop-image-container">
+            <span class="brand-badge">Asus</span>
+            <img class="laptop-img" src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500" alt="Zenbook 14 OLED">
+          </div>
+          <div class="laptop-body">
+            <h3 class="laptop-title">Zenbook 14 OLED</h3>
+            <div class="specs-grid">
+              <div class="spec-item"><span class="spec-label">RAM</span><span class="spec-value">16 GB</span></div>
+               <div class="spec-item"><span class="spec-label">Storage</span><span class="spec-value">512 GB</span></div>
+               <div class="spec-item"><span class="spec-label">CPU Score</span><span class="spec-value">8 / 10</span></div>
+               <div class="spec-item"><span class="spec-label">Brand</span><span class="spec-value">Asus</span></div>
+            </div>
+            <div class="laptop-price">Rp 17.200.000</div>
+            <a href="detail.html?id=3" class="btn btn-secondary btn-sm text-center" style="display: block;">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="laptop-card">
+          <div class="laptop-image-container">
+            <span class="brand-badge">Asus</span>
+            <img class="laptop-img" src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500" alt="ROG Zephyrus G14">
+          </div>
+          <div class="laptop-body">
+            <h3 class="laptop-title">ROG Zephyrus G14</h3>
+            <div class="specs-grid">
+              <div class="spec-item"><span class="spec-label">RAM</span><span class="spec-value">16 GB</span></div>
+               <div class="spec-item"><span class="spec-label">Storage</span><span class="spec-value">1000 GB</span></div>
+               <div class="spec-item"><span class="spec-label">CPU Score</span><span class="spec-value">9 / 10</span></div>
+               <div class="spec-item"><span class="spec-label">Brand</span><span class="spec-value">Asus</span></div>
+            </div>
+            <div class="laptop-price">Rp 26.500.000</div>
+            <a href="detail.html?id=4" class="btn btn-secondary btn-sm text-center" style="display: block;">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 50px;">
+        <a href="laptops.html" class="btn btn-primary">Lihat Seluruh Katalog Laptop <i class="fa-solid fa-compass"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq-section" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Frequently Asked <span>Questions</span></h2>
+        <p>Pertanyaan yang sering diajukan mengenai sistem rekomendasi kami.</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">Apa itu Weighted Scoring? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-answer">Weighted Scoring adalah metode pengambilan keputusan dengan memberikan bobot nilai penting pada kriteria tertentu. Laptop yang memenuhi kriteria dengan bobot tinggi akan mendapatkan nilai yang lebih tinggi pula.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Apakah saya harus mendaftar akun untuk memakai LaptopMatch? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-answer">Tidak. Seluruh perhitungan rekomendasi bersifat stateless dan bisa langsung diakses secara gratis oleh siapa saja tanpa perlu login.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Bagaimana penentuan CPU score pada laptop? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-answer">Skor performa CPU dikonversi ke skala 1 - 10 berdasarkan review benchmark processor industri seperti PassMark dan Geekbench.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Apakah laptop yang ditampilkan selalu update? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-answer">Ya. Administrator kami selalu memperbarui katalog laptop, harga pasar, dan spesifikasi secara berkala melalui dashboard admin.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Laptop<span>Match</span></h3>
+          <p>Temukan laptop ideal Anda menggunakan algoritma perhitungan Weighted Scoring yang cerdas, objektif, dan transparan.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Aplikasi</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="laptops.html">Katalog Laptop</a></li>
+            <li><a href="#recommendation-section">Rekomendasi Cerdas</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Administrator</h4>
+          <ul>
+            <li><a href="login.html">Login Admin</a></li>
+            <li><a href="dashboard.html">Dashboard CRUD</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LaptopMatch. All rights reserved. Created with Antigravity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Sticky Navbar Class change on Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('main-navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
